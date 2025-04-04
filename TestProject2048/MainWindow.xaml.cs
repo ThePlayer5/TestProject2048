@@ -27,24 +27,38 @@ namespace TestProject2048
 
         private void TopBtn_Click(object sender, RoutedEventArgs e)
         {
-            Rectangle rectangle = new Rectangle();
-            
-            //MessageBox.Show("Top");
+            int row = Grid.GetRow(Figure1);
+            if (row - 1 >= 0)
+            {
+                Grid.SetRow(Figure1, row - 1);
+            }
         }
 
         private void LeftBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Left");
+            int column = Grid.GetColumn(Figure1);
+            if (column - 1 >= 0)
+            {
+                Grid.SetColumn(Figure1, column - 1);
+            }
         }
 
         private void RightBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Right");
+            int column = Grid.GetColumn(Figure1);
+            if (column + 1 <= Grid1.ColumnDefinitions.Count)
+            {
+                Grid.SetColumn(Figure1, column + 1);
+            }
         }
 
         private void BottomBtn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Bottom");
+            int row = Grid.GetRow(Figure1);
+            if (row + 1 <= Grid1.RowDefinitions.Count)
+            {
+                Grid.SetRow(Figure1, row + 1);
+            }
         }
     }
 }
