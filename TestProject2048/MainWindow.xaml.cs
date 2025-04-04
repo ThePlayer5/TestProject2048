@@ -61,5 +61,24 @@ namespace TestProject2048
             }
 
         }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
+            {
+                TopBtn_Click(sender, null);
+            }
+            if (e.Key == Key.Left)
+            {
+                LeftBtn_Click(sender, null);
+            }
+            if (e.Key == Key.Right)
+            {
+                RightBtn_Click(sender, null);
+            }
+            if (e.Key == Key.Down)
+            {
+                BottomBtn_Click(sender, null);
+            }
+        }
     }
 }
