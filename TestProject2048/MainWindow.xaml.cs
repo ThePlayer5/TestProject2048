@@ -59,6 +59,7 @@ namespace TestProject2048
             {
                 Grid.SetRow(Figure1, row + 1);
             }
+
         }
     }
 }
