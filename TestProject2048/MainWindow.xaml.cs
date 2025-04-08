@@ -30,7 +30,15 @@ namespace TestProject2048
             int row = Grid.GetRow(Figure1);
             if (row - 1 >= 0)
             {
-                Grid.SetRow(Figure1, row - 1);
+                Grid.SetRow(Figure1, 0);
+            }
+            int f2_row = Grid.GetRow(Figure2);
+            if (f2_row - 1 >= 0)
+            {
+                if (f2_row - 1 >= row)
+                {
+                    Grid.SetRow(Figure2, 0);
+                }
             }
         }
 
@@ -39,7 +47,15 @@ namespace TestProject2048
             int column = Grid.GetColumn(Figure1);
             if (column - 1 >= 0)
             {
-                Grid.SetColumn(Figure1, column - 1);
+                Grid.SetColumn(Figure1, 0);
+            }
+            int f2_column = Grid.GetColumn(Figure2);
+            if (f2_column - 1 >= 0)
+            {
+                if (f2_column - 1 >= column)
+                {
+                    Grid.SetColumn(Figure2, 0);
+                }
             }
         }
 
@@ -48,18 +64,33 @@ namespace TestProject2048
             int column = Grid.GetColumn(Figure1);
             if (column + 1 <= Grid1.ColumnDefinitions.Count)
             {
-                Grid.SetColumn(Figure1, column + 1);
+                Grid.SetColumn(Figure1, Grid1.ColumnDefinitions.Count);
+            }
+            int f2_column = Grid.GetColumn(Figure2);
+            if (column + 1 <= Grid1.ColumnDefinitions.Count)
+            {
+                if (f2_column + 1 <= column)
+                {
+                    Grid.SetColumn(Figure2, Grid1.ColumnDefinitions.Count);
+                }
             }
         }
 
         private void BottomBtn_Click(object sender, RoutedEventArgs e)
         {
             int row = Grid.GetRow(Figure1);
-            if (row + 1 <= Grid1.RowDefinitions.Count)
+            if (row + 1 <= Grid1.RowDefinitions.Count - 3)
             {
-                Grid.SetRow(Figure1, row + 1);
+                Grid.SetRow(Figure1, Grid1.RowDefinitions.Count - 3);
             }
-
+            int f2_row = Grid.GetRow(Figure2);
+            if (row + 1 <= Grid1.RowDefinitions.Count - 3)
+            {
+                if (f2_row + 1 <= row)
+                {
+                    Grid.SetRow(Figure2, Grid1.RowDefinitions.Count - 3);
+                }
+            }
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
